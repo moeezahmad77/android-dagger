@@ -1,5 +1,7 @@
 package com.example.java_application.dagger_basics;
 
+import com.example.java_application.MainActivity;
+
 import dagger.Component;
 
 /**
@@ -7,10 +9,12 @@ import dagger.Component;
  * return the required object
  */
 
-@Component
+@Component(modules = {UserModule.class, NotificationModule.class})
 public interface UserRegistrationComponent {
 
-    UserRegistrationService getUserRegistrationService();
+//    UserRegistrationService getUserRegistrationService();
+//
+//    EmailService getEmailService();
 
-    EmailService getEmailService();
+    void inject(MainActivity mainActivity);
 }

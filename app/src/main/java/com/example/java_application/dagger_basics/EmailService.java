@@ -4,6 +4,10 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
+interface NotificationService {
+    void send(String to, String from, String body);
+}
+
 public class EmailService {
     private final String TAG = "EMAIL_SVC";
 

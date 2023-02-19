@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.java_application.dagger_basics.DaggerUserRegistrationComponent;
-import com.example.java_application.dagger_basics.EmailService;
 import com.example.java_application.dagger_basics.UserRegistrationComponent;
 import com.example.java_application.dagger_basics.UserRegistrationService;
+
+import javax.inject.Inject;
 
 /**
  * There are mainly three concepts in dagger
@@ -18,13 +19,20 @@ import com.example.java_application.dagger_basics.UserRegistrationService;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Inject
+    UserRegistrationService userRegistrationService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UserRegistrationComponent userRegistrationComponent = DaggerUserRegistrationComponent.builder().build();
-        UserRegistrationService userRegistrationService = userRegistrationComponent.getUserRegistrationService();
-        EmailService emailService = userRegistrationComponent.getEmailService();
-        userRegistrationService.registerUser("some_email", "some password");
+
+//        UserRegistrationService userRegistrationService = userRegistrationComponent.getUserRegistrationService();
+//        EmailService emailService = userRegistrationComponent.getEmailService();
+//        userRegistrationService.registerUser("some_email", "some password");
+
+        userRegistrationComponent.inject(this);
+        userRegistrationService.registerUser("some email", "password1234");
     }
 }

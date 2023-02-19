@@ -4,13 +4,18 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
-public class UserRepository {
+interface UserService {
+    void saveUser(String email, String password);
+}
+
+public class UserRepository implements UserService {
     private final String TAG = "USER_REPO";
 
     @Inject
     public UserRepository() {}
 
-    void saveUser(String email, String password) {
-        Log.d(TAG, "save user ion db");
+    @Override
+    public void saveUser(String email, String password) {
+        Log.d(TAG, "save user in firebase");
     }
 }
