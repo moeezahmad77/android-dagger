@@ -2,11 +2,6 @@ package com.example.java_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.java_application.dagger_basics.DaggerUserRegistrationComponent;
-import com.example.java_application.dagger_basics.UserRegistrationComponent;
-import com.example.java_application.dagger_basics.UserRegistrationService;
-
 import javax.inject.Inject;
 
 /**
@@ -18,8 +13,8 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Inject
-    UserRegistrationService userRegistrationService;
+//    @Inject
+//    UserRegistrationService userRegistrationService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 //        userRegistrationComponent.inject(this);
 //        userRegistrationService.registerUser("some email", "password1234");
 
-        UserRegistrationComponent userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3);
-        userRegistrationComponent.inject(this);
-        userRegistrationService.registerUser("some email", "some password");
+//        UserRegistrationComponent userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3);
+//        userRegistrationComponent.inject(this);
+//        userRegistrationService.registerUser("some email", "some password");
 
     }
 }
