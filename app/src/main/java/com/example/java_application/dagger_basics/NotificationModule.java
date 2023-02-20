@@ -7,7 +7,7 @@ import dagger.Provides;
 public class NotificationModule {
 
     @Provides
-    public NotificationService getMessageService() {
-        return new MessageService();
+    public NotificationService getMessageService(int retryCount) {
+        return new MessageService(retryCount);
     }
 }

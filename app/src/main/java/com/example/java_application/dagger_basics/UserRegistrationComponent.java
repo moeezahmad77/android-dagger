@@ -2,6 +2,7 @@ package com.example.java_application.dagger_basics;
 
 import com.example.java_application.MainActivity;
 
+import dagger.BindsInstance;
 import dagger.Component;
 
 /**
@@ -13,8 +14,12 @@ import dagger.Component;
 public interface UserRegistrationComponent {
 
 //    UserRegistrationService getUserRegistrationService();
-//
 //    EmailService getEmailService();
 
     void inject(MainActivity mainActivity);
+
+    @Component.Factory
+    interface Factory {
+        UserRegistrationComponent create(@BindsInstance int retryCount);
+    }
 }
